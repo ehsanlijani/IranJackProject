@@ -20,7 +20,7 @@ public class Product : BaseEntity
 
     #region Relations
 
-    public ICollection<InventoryRecord> InventoryRecords { get; set; } = new List<InventoryRecord>();
+    public ICollection<InventoryRecord> InventoryRecords { get; set; }
 
     #endregion Relations
 }

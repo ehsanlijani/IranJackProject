@@ -15,9 +15,9 @@ public class UpdateProductCommandHandler(IProductService productService, IMapper
         if (product is null)
             return Result<bool>.Failure("Product Not Found");
 
-        var mappedProduct = mapper.Map<Product>(request);
+        mapper.Map(request, product);
 
-        await productService.UpdateAsync(mappedProduct, cancellationToken);
+        await productService.UpdateAsync(product, cancellationToken);
 
         return Result<bool>.Success(true);
     }

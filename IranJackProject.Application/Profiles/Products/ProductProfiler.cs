@@ -6,9 +6,9 @@ using Mapster;
 
 namespace IranJackProject.Application.Profiles.Products;
 
-public static class ProductProfiler
+public class ProductProfiler : IRegister
 {
-    public static void RegisterMappings(TypeAdapterConfig config)
+    public void Register(TypeAdapterConfig config)
     {
         config.NewConfig<Product, ProductDto>();
 

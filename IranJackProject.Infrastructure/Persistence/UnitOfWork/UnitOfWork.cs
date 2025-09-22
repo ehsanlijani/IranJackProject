@@ -7,11 +7,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IranJackProject.Infrastructure.Persistence.UnitOfWork;
 
-public class UnitOfWork(IranJackDbContext iranJackDbContext) : IUnitOfWork
+public class UnitOfWork(
+    IranJackDbContext iranJackDbContext,
+    IProductRepository products,
+    IInventoryRecordRepository inventoryRecords
+    ) : IUnitOfWork
 {
-    public IProductRepository Products { get; }
+    public IProductRepository Products { get; } = products;
 
-    public IInventoryRecordRepository InventoryRecords { get; }
+    public IInventoryRecordRepository InventoryRecords { get; } = inventoryRecords;
 
     public async ValueTask DisposeAsync()
         => await iranJackDbContext.DisposeAsync();

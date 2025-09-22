@@ -19,7 +19,7 @@ public class InventoryRecord : BaseEntity
 
     #region Relations
 
-    public Product Product { get; set; } = new Product();
+    public Product Product { get; set; } 
 
     #endregion Relations
 }
